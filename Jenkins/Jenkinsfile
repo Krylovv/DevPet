@@ -1,0 +1,27 @@
+pipeline {
+    agent {
+        node {
+            label 'devpet-docker-agent '
+        }
+    }
+    triggers {
+        pollSCM '*/5 * * * *'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo "Build stage"
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Test stage"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "Deploy stage"
+            }
+        }
+    }
+}
