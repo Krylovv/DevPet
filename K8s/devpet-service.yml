@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: devpet-service
+spec:
+  type: ClusterIP
+  selector:
+    app: devpet-app
+  ports:
+  - name: devpet-port
+    protocol: TCP
+    port: 8001
+    targetPort: 8001

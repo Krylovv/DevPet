@@ -1,0 +1,16 @@
+- name: install minikube
+  hosts: devpet
+  become: true
+  tasks:
+
+  - name: install minikube from url
+    ansible.builtin.shell:
+      cmd: curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
+
+  - name: make directory
+    ansible.builtin.shell:
+      cmd: sudo mkdir -p /usr/local/bin/
+
+  - name: minikube install
+    ansible.builtin.shell:
+      cmd: sudo install minikube /usr/local/bin/

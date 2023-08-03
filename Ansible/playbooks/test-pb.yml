@@ -1,0 +1,4 @@
+- name: test ping
+  hosts: devpet
+  tasks:
+    - ping:

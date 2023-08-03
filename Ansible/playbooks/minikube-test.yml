@@ -1,0 +1,15 @@
+- name: test minikube installation
+  hosts: devpet
+  tasks:
+
+  - name: start minikube
+    ansible.builtin.shell:
+      cmd: minikube start
+
+  - name: show minikube status
+    ansible.builtin.shell:
+      cmd: minikube status
+
+  - name: stop minikube
+    ansible.builtin.shell:
+      cmd: minikube stop

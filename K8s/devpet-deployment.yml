@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devpet-app
+  labels:
+    app: devpet-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devpet-app
+  template:
+    metadata:
+      labels:
+        app: devpet-app
+    spec:
+      containers:
+      - name: devpet-app
+        image: kryloff/devpet:v1.0
+        ports:
+        - containerPort: 8001
