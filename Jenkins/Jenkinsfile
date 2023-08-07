@@ -15,7 +15,7 @@ pipeline {
             steps {
                 echo "Build stage"
                 sh 'git clone https://github.com/Krylovv/DevPet/ && cd ./DevPet/Code/WebApp'
-                sh 'docker build -t kryloff/devpet:${TAG}'
+                sh 'docker build -t kryloff/devpet:${TAG} .'
             }
         }
         stage('Test') {
