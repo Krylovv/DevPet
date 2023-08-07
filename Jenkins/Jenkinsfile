@@ -15,10 +15,10 @@ pipeline {
             steps {
                 echo "Build stage"
                 sh 'apt-get update && \
-    apt-get -qy full-upgrade && \
-    apt-get install -qy curl && \
-    apt-get install -qy curl && \
-    curl -sSL https://get.docker.com/ | sh'
+                    apt-get -qy full-upgrade && \
+                    apt-get install -qy curl && \
+                    apt-get install -qy curl && \
+                    curl -sSL https://get.docker.com/ | sh'
                 sh 'git clone https://github.com/Krylovv/DevPet/ && cd ./DevPet/Code/WebApp'
                 sh
                 sh 'docker build -t kryloff/devpet:${TAG} .'
