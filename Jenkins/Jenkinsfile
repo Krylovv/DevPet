@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'devpet-docker-agent '
+            label 'perm-ubuntu-agent'
         }
     }
     environment {
@@ -14,11 +14,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Build stage"
-                sh 'apt update && \
-                    apt -qy full-upgrade && \
-                    apt install -qy curl && \
-                    apt install -qy curl && \
-                    curl -sSL https://get.docker.com/ | sh'
                 sh 'git clone https://github.com/Krylovv/DevPet/ && cd ./DevPet/Code/WebApp'
                 sh 'docker build -t kryloff/devpet:${TAG} .'
             }
