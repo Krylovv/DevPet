@@ -14,10 +14,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Build stage"
-                sh 'mkdir DevPet'
-                sh 'cd DevPet && git clone https://github.com/Krylovv/DevPet/'
-                sh 'docker build -t kryloff/devpet:${TAG} ./DevPet/Code/WebApp'
-                sh 'rm -rf DevPet'
+                sh 'git clone https://github.com/Krylovv/DevPet/'
+                sh 'docker build -t kryloff/devpet:${TAG} ./Code/WebApp'
+                sh 'rm -rf /home/jenkins/workspace/devpet-pipeline/*'
             }
         }
         stage('Test') {
