@@ -16,7 +16,7 @@ pipeline {
                 echo "Build stage"
                 sh 'git clone https://github.com/Krylovv/DevPet/'
                 sh 'docker build -t kryloff/devpet:${TAG} ./Code/WebApp'
-                sh 'rm -rf /home/jenkins/workspace/devpet-pipeline/*'
+                sh 'rm -rf ~/workspace/devpet_pipeline/*'
             }
         }
         stage('Test') {
