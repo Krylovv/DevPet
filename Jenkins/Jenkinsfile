@@ -28,6 +28,7 @@ pipeline {
             steps {
                 echo "Deploy stage"
                 sh 'docker push kryloff/devpet:${TAG}'
+                sh 'docker image rm kryloff/devpet:${TAG}'
                 sh 'minikube kubectl -- set image deployment/devpet-app devpet-app=kryloff/devpet:${TAG}'
                 sh 'minikube kubectl -- port-forward service/devpet-service --address=0.0.0.0 8001'
             }
